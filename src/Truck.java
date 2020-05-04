@@ -13,21 +13,24 @@ public class Truck extends Car {
     public void setLoadWeight(double loadWeight) {
         this.loadWeight = loadWeight;
     }
+    public double getRange() {
+        double range = this.getAverageFuelOn100km();
 
-    double truckAdictionalCombustionAirConditioning() {
-        if (isAirConditioning()) {
-            return getAverageFuelOn100km() + 1.6;
-        } else {
-            return getAverageFuelOn100km();
+        if (this.isAirConditioning()) {
+            range = range + 1.6;
         }
-    }
-    double truckAdictionalCombustionLoadWeight(){
-        if (truckAdictionalCombustionLoadWeight() == getLoadWeight() + 100);
-        return getAverageFuelOn100km() + 0.5;
+
+        return range + (this.getLoadWeight() / 100 *  0.5);
     }
 
-
+    @Override
+    String getInfo() {
+        return super.getInfo() + " " + loadWeight + " " + getRange();
     }
+}
+
+
+
 
 
 

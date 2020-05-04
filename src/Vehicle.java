@@ -32,4 +32,12 @@ public class Vehicle {
     public void setAverageFuelOn100km(double averageFuelOn100km) {
         this.averageFuelOn100km = averageFuelOn100km;
     }
+
+    public double range() {
+        return getTankCapacity() / getAverageFuelOn100km() * 100;
+    }
+    String getInfo() {
+        return carName + " " + tankCapacity + " " + averageFuelOn100km;
+    }
+
 }

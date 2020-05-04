@@ -21,4 +21,20 @@ public class Car extends Vehicle {
             return getAverageFuelOn100km();
         }
     }
+
+    @Override
+    public double range() {
+        if (isAirConditioning()) {
+            return getTankCapacity() + carAdictionalCombustion() * 100;
+        } else {
+            return super.range();
+        }
+
+
+    }
+
+    @Override
+    String getInfo() {
+        return super.getInfo() + " " + airConditioning + " " + range();
+    }
 }
